@@ -2,6 +2,19 @@ var IShop = React.createClass({
 
     displayName: "IShop",
 
+    propTypes:{
+        goodsHead: React.PropTypes.array,
+        goods: React.PropTypes.arrayOf(
+            React.PropTypes.shape({
+                id: React.PropTypes.number.isRequired,
+                image: React.PropTypes.string.isRequired,
+                name: React.PropTypes.string.isRequired,
+                count: React.PropTypes.number,
+                price: React.PropTypes.number
+            })
+        )
+    },
+
     render: function () {
         
         var goodsListHead = this.props.goodsHead.map(h =>
