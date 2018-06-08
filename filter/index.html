@@ -1,0 +1,49 @@
+<DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Filter</title>
+    </head>
+    <body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="Filter.js"></script>
+    <link rel="stylesheet" type="text/css" href="Filter.css" />
+
+    <script>
+
+        var defstreetsCheckbox = '';
+
+        var streetsArr = [
+            { id: 1, name: 'Ленина ул.'},
+            { id: 2, name: 'Немига ул.'},
+            { id: 3, name: 'Победителей просп.'},
+            { id: 4, name: 'Гагарина ул.'},
+            { id: 5, name: 'Панфилова ул.'},
+            { id: 6, name: 'Орловская ул.'},
+            { id: 7, name: 'Куйбышева ул.'},
+            { id: 8, name: 'Тимирязева ул.'},
+            { id: 9, name: 'Коммунистическая ул.'},
+            { id: 10, name: 'Замковая ул.'},
+            { id: 11, name: 'Янки Купалы ул.'},
+            { id: 12, name: 'Красная ул.'},
+            { id: 13, name: 'Мельникайте ул.'},
+            { id: 14, name: 'Старовиленская ул.'},
+            { id: 15, name: 'Энгельса ул.'},
+            { id: 16, name: 'Старовиленский тракт'},
+            { id: 17, name: 'Даумана ул.'},
+            { id: 18, name: 'Саперов ул.'}
+        ];
+
+        ReactDOM.render(
+                React.createElement(Filter, { streets: streetsArr }),
+                document.getElementById('container')
+        );
+
+    </script>
+
+    </body>
+    </html>
