@@ -1,12 +1,117 @@
-﻿.VotesBlock
-{
-  border: double gray 3px;
-  width: 180px;
-  padding: 3px 7px;
-  background-color: #F0F0F0;
+﻿html, body, table, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+  font-size: 100%
 }
 
-.VotesBlock .Answers
-{
-  padding-top: 5px;
+h1,
+h2{
+  text-align: center;
+  margin-bottom: 8px;
+  color: #1ab394;
+}
+
+h2  {
+  color: #f8ac59;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent
+}
+
+img {
+  border: none;
+  max-width: 100%;
+}
+
+* {
+  outline: none;
+  margin: 0;
+  padding: 0
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #3E3E3E;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative
+}
+
+html {
+  height: 100%
+}
+
+a {
+  color: #5dac73;
+  text-decoration: none
+}
+
+#container {
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+ul {
+  list-style: none;
+  margin: 15px 0;
+}
+
+li{
+  margin: 5px 0;
+}
+
+li:before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  position: relative;
+  margin-right: 8px;
+  background: #f8ac59;
+  top: -2px;
+}
+
+.FilterAndSort-checkbox {
+  font-weight: bold;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+label {
+  cursor: pointer;
+  font-weight: bold;
+}
+label:before {
+  content: " ";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #5dac73;
+  border-radius: 2px;
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
+  transition: background .3s ease-out;
+}
+label:hover:before{
+  background: #eee;
+}
+input[type=checkbox]:checked + label:before {
+  background: #5dac73;
 }
