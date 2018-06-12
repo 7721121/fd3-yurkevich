@@ -5,13 +5,15 @@ import ReactDOM from 'react-dom';
 
 import FilterAndSort from './components/FilterAndSort';
 
-let defSorted=false;
+let defaultSorted=false;
+let defaultLabelText='Sort It!';
 let streetsArr=require('./streets.json');
 
 ReactDOM.render(
   <FilterAndSort
     streets={streetsArr}
-    defsorted={defSorted}
+    defsorted={defaultSorted}
+    deflabeltext={defaultLabelText}
   />
   , document.getElementById('container') 
 );
