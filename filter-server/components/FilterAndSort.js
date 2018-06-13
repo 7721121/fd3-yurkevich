@@ -18,21 +18,21 @@ class FilterAndSort extends React.Component {
   };
 
   processStreets = () => {
-     this.setState({streetsForSort: this.props.streets});
+    this.setState({streetsForSort: this.props.streets});
+
+    var filterValueLower = this.state.filterValue.toLowerCase();
+    var filteredStreetsArr = this.props.streets.slice();
+    var filteredStreets = filteredStreetsArr.filter(function(item) {
+      var streetName = item.name.toLowerCase();
+      return streetName.includes(filterValueLower);
+    });
 
     if(this.state.filterValue != ''){
-      var filterValueLower = this.state.filterValue.toLowerCase();
-      var filteredStreetsArr = this.props.streets.slice();
-      var filteredStreets = filteredStreetsArr.filter(function(item) {
-        var streetName = item.name.toLowerCase();
-        return streetName.includes(filterValueLower);
-      });
       this.setState({streetsForSort: filteredStreets});
     }
 
     if(this.state.isSorted == true){
-      //var sortedStreetsArr = this.props.streets.slice();
-      var sortedStreetsArr = this.state.streetsForSort.slice();
+      var sortedStreetsArr = filteredStreets;
       var sortedStreets = sortedStreetsArr.sort(function(a,b) {
         let x = a.name.toLowerCase();
         let y = b.name.toLowerCase();
