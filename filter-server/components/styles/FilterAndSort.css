@@ -122,3 +122,7 @@ label:hover:before{
 input[type=checkbox]:checked + label:before {
   background: #5dac73;
 }
+
+.FilterAndSort {
+  margin: 20px;
+}
