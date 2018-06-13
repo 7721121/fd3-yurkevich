@@ -7,47 +7,62 @@ class FilterAndSort extends React.Component {
 
   static propTypes = {
     streets: PropTypes.array,
-    defaultSorted: PropTypes.bool,
-    defaultLabelText: PropTypes.string,
+    defaultLabelText: PropTypes.string
   };
 
   state = {
-    isSorted: this.props.defsorted,
     streetsForSort: this.props.streets,
     labelText: this.props.deflabeltext,
+    isSorted: false,
     filterValue: ''
+  };
+
+  processStreets = () => {
+    if(this.state.filterValue != ''){
+      var filterValueLower = this.state.filterValue.toLowerCase();
+      var filteredStreetsArr = this.state.streetsForSort.slice();
+      var filteredStreets = filteredStreetsArr.filter(function(item) {
+        var streetName = item.name.toLowerCase();
+        return streetName.includes(filterValueLower);
+      });
+      console.log('--',filteredStreets);
+      this.setState({streetsForSort: filteredStreets});
+    }else{
+      this.setState({streetsForSort: this.props.streets});
+    }
+
+    if(this.state.isSorted == true){
+      var sortedStreetsArr = this.state.streetsForSort.slice();
+      var sortedStreets = sortedStreetsArr.sort(function(a,b) {
+        let x = a.name.toLowerCase();
+        let y = b.name.toLowerCase();
+        return x < y ? -1 : x > y ? 1 : 0;
+      });
+      this.setState({streetsForSort: sortedStreets});
+    }else{
+      this.setState({streetsForSort: this.props.streets});
+    }
   }
 
   filterStreets = (e) => {
-    var typingValue = e.target.value.toLowerCase();
-    var filteredStreetsArr = this.state.streetsForSort.slice(0);
-    var filteredStreets = filteredStreetsArr.filter(function(item) {
-      var streetName = item.name.toLowerCase();
-      return streetName.includes(typingValue);
-    });
-    this.setState( {filterValue: typingValue, streetsForSort: filteredStreets});
+    var typingValue = e.target.value;
+    if (typingValue != ''){
+      this.setState( {filterValue: typingValue},this.processStreets)
+    }else{
+      this.setState( {filterValue: '',},this.processStreets)
+    }
   }
 
-  checkboxChangeState = () => {
-
-      this.setState( {isSorted: !this.state.isSorted} );
-
-      if (this.state.isSorted === false){
-        var sortedStreets = this.state.streetsForSort.slice(0);
-        sortedStreets.sort(function(a,b) {
-          var x = a.name.toLowerCase();
-          var y = b.name.toLowerCase();
-          return x < y ? -1 : x > y ? 1 : 0;
-        });
-        this.setState( {streetsForSort: sortedStreets, labelText: 'Sorted'});
-
-      }else{
-        this.setState( {streetsForSort: this.props.streets, labelText: this.props.deflabeltext} );
-      }
+  toggleCheckbox = (e) => {
+    console.log(e.target.checked);
+    if (e.target.checked==true){
+      this.setState( {isSorted: true, labelText: 'Sorted'},this.processStreets)
+    }else{
+      this.setState( {isSorted: false, labelText: this.props.deflabeltext},this.processStreets)
+    }
   }
 
   render() {
-
     var streetsList = this.state.streetsForSort.map( v =>
         <li key={v.id}>{v.name}</li>
     );
@@ -58,7 +73,7 @@ class FilterAndSort extends React.Component {
         <h2>Central District Streets</h2>
         <input type="search"  placeholder="Введите улицу" defaultValue={this.state.filterValue} onChange={this.filterStreets} />
         <div className="checkbox-block">
-          <input type="checkbox" id="sort" onChange={this.checkboxChangeState} />
+          <input type="checkbox" id="sort" onChange={this.toggleCheckbox} />
           <label htmlFor="sort">{this.state.labelText}</label>
         </div>
         <ul className='street-list'>{streetsList}</ul>
