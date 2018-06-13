@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 
 import FilterAndSort from './components/FilterAndSort';
 
-let defaultLabelText='Sort It!';
+let defaultLabelText='Сортировать A-Я ↓';
 let streetsArr=require('./streets.json');
 
 ReactDOM.render(

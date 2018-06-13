@@ -18,20 +18,20 @@ class FilterAndSort extends React.Component {
   };
 
   processStreets = () => {
+     this.setState({streetsForSort: this.props.streets});
+
     if(this.state.filterValue != ''){
       var filterValueLower = this.state.filterValue.toLowerCase();
-      var filteredStreetsArr = this.state.streetsForSort.slice();
+      var filteredStreetsArr = this.props.streets.slice();
       var filteredStreets = filteredStreetsArr.filter(function(item) {
         var streetName = item.name.toLowerCase();
         return streetName.includes(filterValueLower);
       });
-      console.log('--',filteredStreets);
       this.setState({streetsForSort: filteredStreets});
-    }else{
-      this.setState({streetsForSort: this.props.streets});
     }
 
     if(this.state.isSorted == true){
+      //var sortedStreetsArr = this.props.streets.slice();
       var sortedStreetsArr = this.state.streetsForSort.slice();
       var sortedStreets = sortedStreetsArr.sort(function(a,b) {
         let x = a.name.toLowerCase();
@@ -39,8 +39,6 @@ class FilterAndSort extends React.Component {
         return x < y ? -1 : x > y ? 1 : 0;
       });
       this.setState({streetsForSort: sortedStreets});
-    }else{
-      this.setState({streetsForSort: this.props.streets});
     }
   }
 
@@ -56,7 +54,7 @@ class FilterAndSort extends React.Component {
   toggleCheckbox = (e) => {
     console.log(e.target.checked);
     if (e.target.checked==true){
-      this.setState( {isSorted: true, labelText: 'Sorted'},this.processStreets)
+      this.setState( {isSorted: true, labelText: 'Отсортировано A-Я ↓'},this.processStreets)
     }else{
       this.setState( {isSorted: false, labelText: this.props.deflabeltext},this.processStreets)
     }
