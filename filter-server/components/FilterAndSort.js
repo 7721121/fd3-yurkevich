@@ -20,10 +20,10 @@ class FilterAndSort extends React.Component {
   processStreets = () => {
     this.setState({streetsForSort: this.props.streets});
 
-    var filterValueLower = this.state.filterValue.toLowerCase();
-    var filteredStreetsArr = this.props.streets.slice();
-    var filteredStreets = filteredStreetsArr.filter(function(item) {
-      var streetName = item.name.toLowerCase();
+    let filterValueLower = this.state.filterValue.toLowerCase();
+    let filteredStreetsArr = this.props.streets.slice();
+    let filteredStreets = filteredStreetsArr.filter(function(item) {
+      let streetName = item.name.toLowerCase();
       return streetName.includes(filterValueLower);
     });
 
@@ -32,8 +32,8 @@ class FilterAndSort extends React.Component {
     }
 
     if(this.state.isSorted == true){
-      var sortedStreetsArr = filteredStreets;
-      var sortedStreets = sortedStreetsArr.sort(function(a,b) {
+      let sortedStreetsArr = filteredStreets;
+      let sortedStreets = sortedStreetsArr.sort(function(a,b) {
         let x = a.name.toLowerCase();
         let y = b.name.toLowerCase();
         return x < y ? -1 : x > y ? 1 : 0;
@@ -43,7 +43,7 @@ class FilterAndSort extends React.Component {
   }
 
   filterStreets = (e) => {
-    var typingValue = e.target.value;
+    let typingValue = e.target.value;
     if (typingValue != ''){
       this.setState( {filterValue: typingValue},this.processStreets)
     }else{
@@ -52,7 +52,6 @@ class FilterAndSort extends React.Component {
   }
 
   toggleCheckbox = (e) => {
-    console.log(e.target.checked);
     if (e.target.checked==true){
       this.setState( {isSorted: true, labelText: 'Отсортировано A-Я ↓'},this.processStreets)
     }else{
@@ -61,7 +60,7 @@ class FilterAndSort extends React.Component {
   }
 
   render() {
-    var streetsList = this.state.streetsForSort.map( v =>
+    const streetsList = this.state.streetsForSort.map( v =>
         <li key={v.id}>{v.name}</li>
     );
 
