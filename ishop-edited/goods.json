@@ -1,0 +1,7 @@
+[
+    { "id": 1, "name": "Ноутбук Xiaomi Mi Notebook Pro 15.6 JYU4036CN", "price": 2150, "image": "images/d5fb0dbff218465e5e2cb70d49007d28.jpeg", "counts": 7 },
+    { "id": 2, "name": "Ноутбук Apple MacBook Pro 15' Touch Bar (2017 год)", "price": 5919.65, "image": "images/6c2595c3b8f8078d444680096ad983a3.jpeg", "counts": 3 },
+    { "id": 3, "name": "Ноутбук ASUS X507UA-BQ040", "price": 899, "image": "images/09980dab678a5c2a3917bb58bf051dce.jpeg", "counts": 4 },
+    { "id": 4, "name": "Ноутбук HP Spectre x360 15-ch003ur 3DL80EA", "price": 5300, "image": "images/aea45831b8f0703be14133bd5fb0464d.jpeg", "counts": 1 },
+    { "id": 5, "name": "Ноутбук Lenovo ideaPad 320-15IAP [80XR00FTRU]", "price": 679, "image": "images/a57d85aa82556e51b08fb3d75ea26440.png", "counts": 5 }
+]
