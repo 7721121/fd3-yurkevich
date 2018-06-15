@@ -93,51 +93,136 @@ td {
     padding: 14px;
 }
 
-.good-list th,
-.good-list td {
+.goods-table-wr {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.goods-table,
+.goods-card {
+    width: 100%;
+    transition: all .3s ease-out;
+}
+
+.goods-table.open {
+    display: inline-block;
+    width: 57%;
+}
+
+.goods-card {
+    display: none;
+    border-radius: 5px;
+    border: 1px solid #1ab394;
+    border-bottom: 2px solid #1ab394;
+}
+
+.goods-card.show {
+    display: inline-block;
+    width: 40%;
+}
+
+.goods-card-title {
+    font-size: 14px;
+    background: #1ab394;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+}
+.goods-card-descr {
+    padding: 20px;
+}
+.goods-card-descr > div {
+    min-height: 50px;
+    margin-bottom: 10px;
+}
+
+.goods-card-image {
+    margin-bottom: 20px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.goods-table-list th,
+.goods-table-list td {
 
 }
 
-.good-list tr .img img {
+.goods-table-list tr .img img {
     transition: all .3s ease;
 }
 
-.good-list tr:hover,
-.good-list tr:nth-child(even) {
+.goods-table-list tr:hover,
+.goods-table-list tr:nth-child(even) {
     background: rgba(238, 238, 238, .5);
 }
 
-.good-list tr.active,
-.good-list tr.active:hover {
+.goods-table-list tr.active,
+.goods-table-list tr.active:hover {
     background: rgba(26, 179, 148, .1);
+    outline: 1px solid #1ab394;
 }
 
-.good-list tr:hover {
+.goods-table-list tr:hover {
     cursor: pointer;
 }
 
-.good-list tr:last-child td {
+.goods-table-list tr:last-child td {
     padding-bottom: 30px;
 }
 
-.good-list tr:last-child td {
+.goods-table-list tr:last-child td {
     border-bottom: 2px solid rgba(238, 238, 238, .5);
 }
 
-.good-list tr:hover .img img {
+.goods-table-list tr:hover .img img {
     transform: scale(1.1);
 }
 
-.good-list th {
-
+.goods-table-list th {
+    white-space: nowrap;
 }
 
-.good-list td.name {
+.goods-table-list td.name {
     text-align: left;
 }
 
-.good-list td.price {
+.goods-table-list td.price {
     font-size: 16px;
     color: #1ab394;
     font-weight: bold;
+}
+
+.btn {
+    border: 0;
+    background: #1ab394;
+    padding: 5px 15px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 3px;
+    border: 1px solid #1ab394;
+    border-bottom: 2px solid #1ab394;
+    transition: border .3s ease;
+}
+
+.btn:hover {
+    border-bottom: 1px solid #1ab394;
+    border-top: 2px solid #1ab394;
+    cursor: pointer;
+}
+.btn-edit {
+    background: #f8ac59;
+    border-color: #f8ac59;
+    border-bottom-color: #d27f25;
+}
+.btn-edit:hover {
+    border-bottom-color: #f8ac59;
+    border-top-color: #d27f25;
+}
+
+.right {
+    float: right;
 }
