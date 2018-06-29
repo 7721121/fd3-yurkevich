@@ -5,17 +5,18 @@ import './styles/IShopEdited.css';
 
 class IShopEdited extends React.Component {
 
-  static propTypes:{
+  static propTypes = {
     goodsHead: PropTypes.array,
-    goods: PropTypes.array,
-/*    goods: PropTypes.shape({
+    goods: PropTypes.arrayOf(
+      PropTypes.shape({
         id: PropTypes.number.isRequired,
         image: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         count: PropTypes.number,
         price: PropTypes.number
-      })*/
-  }
+      })
+    )
+  };
 
   state = {
     goodID: null,
